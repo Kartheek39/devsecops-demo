@@ -54,7 +54,7 @@ jobs:
         needs: [build]
         env:
             REGISTRY: ghcr.io
-            IMAGE_NAME: kartheek39
+            IMAGE_NAME: ${{ github.repository }}
         steps:
             - name: Checkout Code
               uses: actions/checkout@v4
@@ -117,7 +117,7 @@ jobs:
             - name: Update Kubernetes deployment file
               env:
                  IMAGE_TAG: sha-${{ github.sha }}
-                 GITHUB_REPOSITORY: kartheek39
+                 GITHUB_REPOSITORY: ${{ github.repository }}
                  REGISTRY: ghcr.io
               run: |
                   # Define the new image with tag
